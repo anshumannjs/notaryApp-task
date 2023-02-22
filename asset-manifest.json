@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/notaryApp/static/css/main.05f8d6e2.css",
+    "main.js": "/notaryApp/static/js/main.fa8174b2.js",
+    "static/js/787.74100f23.chunk.js": "/notaryApp/static/js/787.74100f23.chunk.js",
+    "index.html": "/notaryApp/index.html",
+    "main.05f8d6e2.css.map": "/notaryApp/static/css/main.05f8d6e2.css.map",
+    "main.fa8174b2.js.map": "/notaryApp/static/js/main.fa8174b2.js.map",
+    "787.74100f23.chunk.js.map": "/notaryApp/static/js/787.74100f23.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.05f8d6e2.css",
+    "static/js/main.fa8174b2.js"
+  ]
+}
