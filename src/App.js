@@ -1,24 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import UserInfo from './Components/UserInfo';
+import MultiSteeper from './Components/MultiSteeper';
+import Form from './Components/Form';
 
 function App() {
+
+  const [userData,setUserData]=useState("");
+
+  useEffect(()=>{
+    get();
+  },[]);
+
+  function get(){
+    fetch(`https://notaryapp-staging.herokuapp.com/plugin/getPluginSampleResponse`,{
+      method: 'POST',
+      mode:'cors',
+      cache:'no-cache',
+      credentials:'same-origin',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      redirect:'follow',
+      referrerPolicy:'no-referrer'
+    }).then((res)=>{
+      return res.json()
+    }).then((data)=>{
+      console.log(data);
+      setUserData(data.response.personalInfo);
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div className='flex'>
+    {(userData=="")?"":
+    <UserInfo userData={userData}></UserInfo>
+    }
+    {(userData=="")?"":
+    <Form userData={userData}/>
+    }
+   </div>
   );
 }
 
